@@ -15,9 +15,9 @@ def index():
 
 @app.route('/add_click', methods=['POST'])
 def add_click():
+    if 'clicks' in session:
+        session['clicks']+=1
     # session['clicks'] = True
-    session['clicks'] += 1
-    session.modified = True
     return redirect('/')
 
 @app.route('/reset_click', methods=['POST'])
